@@ -100,10 +100,22 @@
             <input type="text" class="form-control" id="prodName3" aria-describedby="textHelp" placeholder="Enter Product Name">
           </div>
           <div class="form-group">
+            <label for="exampleInputEmail1">Product ID</label>
+            <input type="text" class="form-control" id="p_id" aria-describedby="textHelp" placeholder="Enter Product ID">
+          </div>
+          <div class="form-group">
             <label for="exampleInputPassword1">Company ID</label>
             <input type="password" class="form-control" id="compID3" placeholder="Enter Company ID">
           </div>
-          <button type="button" class="btn btn-primary" onclick="App.addProduct()">Add Product</button>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Product Descrption</label>
+            <input type="text" class="form-control" id="p_desc" aria-describedby="textHelp" placeholder="Enter Product Description">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Product MRP(Price)</label>
+            <input type="text" class="form-control" id="mrp" aria-describedby="textHelp" placeholder="Enter MRP of Producr">
+          </div>
+          <button type="button" class="btn btn-primary" onclick="addproduct()">Add Product</button>
         </form>
       </div>
     </div>
@@ -124,11 +136,179 @@
       </div>
     </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="distributer">
-  distributer works...
+ <div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <div class="dis-login">
+    <form id="displayComp" >
+      <h3>VERIFY YOURSELF</h3>
+      <small id="emailHelp" class="form-text text-muted">Kindly Verify Yourself</small>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Distributer ID</label>
+        <input type="password" class="form-control" id="dis_id" placeholder="Enter Distributer ID">
+      </div>
+      <button type="button" class="btn btn-primary" onclick="dis_verify();">Verify</button>
+    </form>
+    <br>
+    <small style="font-weight: 900;color: red;">If you don't have account in Product Authentication</small>
+    <button type="button" class="btn btn-primary" onclick="dis_signup();">Don't have Account?</button>
+    <span style="color: red;" id="dmsg"></span>
+  </div>
+  <div class="dis-signup">
+    <form id="addcomp">
+      <h1>SIGN UP DISTRIBUTER</h1>
+      <small id="emailHelp" class="form-text text-muted">Kindly fill the following fields</small>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Distributer Name</label>
+        <input type="text" class="form-control" id="d_name" aria-describedby="textHelp" placeholder="Enter Distributer  Name">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Distributer  ID</label>
+        <input type="password" class="form-control" id="d_id" placeholder="Enter Distributer ID">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Offial Email</label>
+        <input type="email" class="form-control" id="d_email" placeholder="Enter Offial Email">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Offial Phone No</label>
+        <input type="text" class="form-control" id="d_phno" placeholder="Enter Offial Phone No">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Distributer  Location</label>
+        <input type="text" class="form-control" id="d_location" placeholder="Enter Distributer  Location">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Distributer  Address</label>
+        <textarea type="text" class="form-control" id="d_adress" placeholder="Enter Distributer Address">
+          </textarea>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Company ID</label>
+        <input type="password" class="form-control" id="d_c_id" placeholder="Enter Company ID">
+      </div>
+  
+      <button type="button" class="btn btn-primary" onclick="AddDistributer()" >Sigup</button>
+    </form>
+  </div>
+  <div class="d_p_auth">
+     <div id="d-camera">
+
+     </div>
+     <div class="register">
+       <p>Product Authenticated successfully...</p>
+      <button class="btn btn-primary" onclick="d_register()">Register</button>
+     </div>
+  </div>
+  </div>
+  
+ </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="retailer">
-  retailer works...
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <div class="dis-login">
+      <form id="displayComp" >
+        <h3>VERIFY YOURSELF</h3>
+        <small id="emailHelp" class="form-text text-muted">Kindly Verify Yourself</small>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Distributer ID</label>
+          <input type="password" class="form-control" id="dis_id" placeholder="Enter Distributer ID">
+        </div>
+        <button type="button" class="btn btn-primary" onclick="dis_verify();">Verify</button>
+      </form>
+      <br>
+      <small style="font-weight: 900;color: red;">If you don't have account in Product Authentication</small>
+      <button type="button" class="btn btn-primary" onclick="dis_signup();">Don't have Account?</button>
+      <span style="color: red;" id="dmsg"></span>
+    </div>
+    <div class="dis-signup">
+      <form id="addcomp">
+        <h1>SIGN UP DISTRIBUTER</h1>
+        <small id="emailHelp" class="form-text text-muted">Kindly fill the following fields</small>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Distributer Name</label>
+          <input type="text" class="form-control" id="d_name" aria-describedby="textHelp" placeholder="Enter Distributer  Name">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Distributer  ID</label>
+          <input type="password" class="form-control" id="d_id" placeholder="Enter Distributer ID">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Offial Email</label>
+          <input type="email" class="form-control" id="d_email" placeholder="Enter Offial Email">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Offial Phone No</label>
+          <input type="text" class="form-control" id="d_phno" placeholder="Enter Offial Phone No">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Distributer  Location</label>
+          <input type="text" class="form-control" id="d_location" placeholder="Enter Distributer  Location">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Distributer  Address</label>
+          <textarea type="text" class="form-control" id="d_adress" placeholder="Enter Distributer Address">
+            </textarea>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Company ID</label>
+          <input type="password" class="form-control" id="d_c_id" placeholder="Enter Company ID">
+        </div>
+    
+        <button type="button" class="btn btn-primary" onclick="AddDistributer()" >Sigup</button>
+      </form>
+    </div>
+    <div class="d_p_auth">
+       <div id="d-camera">
+  
+       </div>
+       <div class="register">
+         <p>Product Authenticated successfully...</p>
+        <button class="btn btn-primary" onclick="d_register()">Register</button>
+       </div>
+    </div>
+    </div>
+    
+   </div>
 </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -138,6 +318,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="quagga.min.js"></script>
     <script src="js/web3.min.js"></script>
     <script src="js/truffle-contract.js"></script>
     <script src="js/app.js"></script>
@@ -163,6 +344,9 @@
         $('.company').hide();
         $('.retailer').hide();
         $('.distributer').show();
+        $('.dis-login').show();
+        $('.dis-signup').hide();
+        $('.d_p_auth').hide();
       }
       function ret_show(){
         $('.company').hide();
@@ -181,7 +365,7 @@
           var c_address=document.getElementById('c_address').value;
           var c_r_no=document.getElementById('c_registration_id').value;
           var xhr=new XMLHttpRequest()
-          let url=`http://127.0.0.1/addcompany/${c_name}/${c_id}/${c_email}/${c_phno}/${c_location}/${c_address}`
+          let url=`http://127.0.0.1:3000/addcompany/${d_name}/${c_id}/${c_email}/${c_phno}/${c_location}/${c_address}`
           xhr.open('GET',url)
           xhr.onload=(res)=>{
              console.log(res.currentTarget.responseText)
@@ -200,6 +384,88 @@
         document.getElementById('msg').innerHTML="Invalid company ID"
       }     
       }
+      function dis_signup(){
+        $('.dis-login').hide();
+        $('.dis-signup').show();
+      }
+    function AddDistributer(){
+          var d_name=document.getElementById('d_name').value;
+          var d_id=document.getElementById('d_id').value;
+          var d_email=document.getElementById('d_email').value;
+          var d_phno=document.getElementById('d_phno').value;
+          var d_location=document.getElementById('d_location').value;
+          var d_address=document.getElementById('d_address').value;
+          var d_c_id=document.getElementById('d_c_id').value;
+          var xhr=new XMLHttpRequest()
+          let url=`http://127.0.0.1:3000/add_dis/${d_name}/${d_id}/${d_c_id}/${d_email}/${d_phno}/${d_location}/${d_address}`
+          xhr.open('GET',url)
+          xhr.onload=(res)=>{
+             console.log(res.currentTarget.responseText)
+          }
+          xhr.send();
+      $('.dis-signup').hide(); 
+      $('.dis-login').show();   
+    } 
+    function dis_verify(){
+      var dis_id=document.getElementById('dis_id').value;
+      var xhr=new XMLHttpRequest()
+      let url=`http://127.0.0.1:3000/dis_very/${dis_id}`
+      xhr.open('GET',url)
+      xhr.onload=(res)=>{
+        let varified=JSON.parse(res.currentTarget.responseText)
+        if(varified.status){
+          $('.dis-login').hide();
+          $('.d_p_auth').show();
+          $('.register').hide();
+          //open barcode scanner
+          Quagga.init({
+            inputStream : {
+              name : "Live",
+              type : "LiveStream",
+              target: document.querySelector('#d-camera')    // Or '#yourElement' (optional)
+          },
+          debug: {
+            drawBoundingBox: true,
+            showFrequency: true,
+            drawScanline: true,
+            showPattern: true
+          },
+            decoder : {
+              readers : ["code_128_reader"]
+            }
+          }, function(err) {
+              if (err) {
+                  console.log(err);
+                  return
+              }
+              console.log("Initialization finished. Ready to start");
+              Quagga.start();
+          });
+           Quagga.onDetected(function(data){
+            //verify_product(data.codeResult.code);
+            //bro data.codeResult.code undatha avu product da hash aven verifcation portal g send malpula
+            $('.d_p_auth').hide()
+            $('.register').show();
+           });
+        }
+        else{
+          document.getElementById('dmsg').innerHTML="Invalid distributer Id"
+        }
+      }
+      xhr.send();
+      
+
+    }
+    function d_register(){
+      var xhr=new XMLHttpRequest()
+      let url=`http://127.0.0.1:3000/dis_verified/${p_id}`
+      xhr.open('GET',url)
+      xhr.onload=()=>{
+        alert("registerd succussfully.....")
+      }
+      xhr.send();
+
+    }
     </script>
   </body>
 </html>
