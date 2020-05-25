@@ -51,27 +51,27 @@
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Offial Email</label>
-            <input type="password" class="form-control" id="" placeholder="Enter Offial Email">
+            <input type="email" class="form-control" id="c_email" placeholder="Enter Offial Email">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Offial Phone No</label>
-            <input type="password" class="form-control" id="" placeholder="Enter Offial Phone No">
+            <input type="text" class="form-control" id="c_phno" placeholder="Enter Offial Phone No">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Company Location</label>
-            <input type="password" class="form-control" id="" placeholder="Enter Company Location">
+            <input type="text" class="form-control" id="c_location" placeholder="Enter Company Location">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Company Adress</label>
-            <textarea type="password" class="form-control" id="adress" placeholder="Enter Company Adress">
+            <textarea type="text" class="form-control" id="c_adress" placeholder="Enter Company Adress">
               </textarea>
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">registeration ID</label>
-            <input type="password" class="form-control" id="" placeholder="Enter registeration ID">
+            <input type="password" class="form-control" id="c_registration_id" placeholder="Enter registeration ID">
           </div>
       
-          <button type="button" class="btn btn-primary" onclick="App.addCompany()" >Add Company</button>
+          <button type="button" class="btn btn-primary" onclick="Addcompany()" >Add Company</button>
         </form>
       </div>
       <!--To Login Company-->
@@ -88,6 +88,7 @@
         <br>
         <small>If you not registered company with Product Authentication</small>
         <button type="button" class="btn btn-primary" onclick="signup();">Add Company</button>
+        <span style="color: red;" id="msg"></span>
       </div>
       
       <div class="add-product">
@@ -168,11 +169,30 @@
         $('.retailer').show();
         $('.distributer').hide();
       }
-      function verify(){
+      function Addcompany(){
+        var status=App.addCompany()
         
+        if(status==true){
+          var c_name=document.getElementById('compName1').value;
+          var c_id=document.getElementById('compID1').value;
+          var c_email=document.getElementById('c_email').value;
+          var c_phno=document.getElementById('c_phno').value;
+          var c_location=document.getElementById('c_location').value;
+          var c_address=document.getElementById('c_address').value;
+          var c_r_no=document.getElementById('c_registration_id').value;
+        console.log(c_name,c_id,c_email,c_phno,c_location,c_address,c_r_no)  
+        }
+
+      }
+      function verify(){
+      var status=App.verifyComp();
+      if(status==true){
         $('.login').hide();
         $('.add-product').show();
-        App.verifyComp();
+      }
+      else{
+        document.getElementById('msg').innerHTML="Invalid company ID"
+      }     
       }
     </script>
   </body>
