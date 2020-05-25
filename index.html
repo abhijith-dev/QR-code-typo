@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Product Authentication</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+      body{
+        background: url('company.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+   
+      .buttons{
+        margin-left: 35%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="text-align: center;">Product Authentication</h1>
+    <br>
+    <br>
+    <div class="buttons">
+      <button class="btn btn-primary" onclick="com_show()">Company</button>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button class="btn btn-primary" onclick="dis_show()" >Distributer</button>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button class="btn btn-primary" onclick="ret_show()">Retailer</button>
+    </div>
+  <hr>
+    <div class="company">
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+             <!--To add Company-->
+      <div class="signup">
+        <form id="addcomp">
+          <h1>ADD COMPANY</h1>
+          <small id="emailHelp" class="form-text text-muted">Kindly fill the following fields</small>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Company Name</label>
+            <input type="text" class="form-control" id="compName1" aria-describedby="textHelp" placeholder="Enter Company Name">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Company ID</label>
+            <input type="password" class="form-control" id="compID1" placeholder="Enter Company ID">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Offial Email</label>
+            <input type="password" class="form-control" id="" placeholder="Enter Offial Email">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Offial Phone No</label>
+            <input type="password" class="form-control" id="" placeholder="Enter Offial Phone No">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Company Location</label>
+            <input type="password" class="form-control" id="" placeholder="Enter Company Location">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Company Adress</label>
+            <textarea type="password" class="form-control" id="adress" placeholder="Enter Company Adress">
+              </textarea>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">registeration ID</label>
+            <input type="password" class="form-control" id="" placeholder="Enter registeration ID">
+          </div>
+      
+          <button type="button" class="btn btn-primary" onclick="App.addCompany()" >Add Company</button>
+        </form>
+      </div>
+      <!--To Login Company-->
+      <div class="login">
+        <form id="displayComp" >
+          <h3>VERIFY YOURSELF</h3>
+          <small id="emailHelp" class="form-text text-muted">Kindly Verify Yourself</small>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Company ID</label>
+            <input type="password" class="form-control" id="compID2" placeholder="Enter Company ID">
+          </div>
+          <button type="button" class="btn btn-primary" onclick="verify();">Verify</button>
+        </form>
+        <br>
+        <small>If you not registered company with Product Authentication</small>
+        <button type="button" class="btn btn-primary" onclick="signup();">Add Company</button>
+      </div>
+      
+      <div class="add-product">
+        <form id="addProduct" >
+          <h1>ADD PRODUCT DETAILS</h1>
+          <small id="emailHelp" class="form-text text-muted">Kindly fill the following fields</small>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Product Name</label>
+            <input type="text" class="form-control" id="prodName3" aria-describedby="textHelp" placeholder="Enter Product Name">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Company ID</label>
+            <input type="password" class="form-control" id="compID3" placeholder="Enter Company ID">
+          </div>
+          <button type="button" class="btn btn-primary" onclick="App.addProduct()">Add Product</button>
+        </form>
+      </div>
+    </div>
+  
+    <!-- <div class="v-product ">
+      <h1>VERIFICATION PORTAL</h1>
+            <small id="emailHelp" class="form-text text-muted">Verify Your Product Here</small>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Kindly Enter the Product ID</label>
+              <input type="number" class="form-control" id="retID12" placeholder="Enter Product ID">
+            </div>
+            <button type="button" class="btn btn-outline-warning" onclick="App.verificationPortal()">Verify!</button>
+          </form>
+      </div>
+    </div> -->
+      <div class="col">
+        <p id="message"></p>
+      </div>
+    </div>
+</div>
+<div class="distributer">
+  distributer works...
+</div>
+<div class="retailer">
+  retailer works...
+</div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+      window.onload=function(){
+        $('.company').hide();
+        $('.retailer').hide();
+        $('.distributer').hide(); 
+      }
+      function com_show(){
+        $('.company').show();
+        $('.retailer').hide();
+        $('.distributer').hide();
+        $('.login').show();
+        $('.signup').hide();
+        $('.add-product').hide();
+      }
+      function signup(){
+        $('.login').hide();
+        $('.signup').show();
+      }
+      function dis_show(){
+        $('.company').hide();
+        $('.retailer').hide();
+        $('.distributer').show();
+      }
+      function ret_show(){
+        $('.company').hide();
+        $('.retailer').show();
+        $('.distributer').hide();
+      }
+      function verify(){
+        
+        $('.login').hide();
+        $('.add-product').show();
+        App.verifyComp();
+      }
+    </script>
+  </body>
+</html>
