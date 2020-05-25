@@ -171,7 +171,7 @@
       }
       function Addcompany(){
         var status=App.addCompany()
-        
+        var status=true;
         if(status==true){
           var c_name=document.getElementById('compName1').value;
           var c_id=document.getElementById('compID1').value;
@@ -180,7 +180,13 @@
           var c_location=document.getElementById('c_location').value;
           var c_address=document.getElementById('c_address').value;
           var c_r_no=document.getElementById('c_registration_id').value;
-        console.log(c_name,c_id,c_email,c_phno,c_location,c_address,c_r_no)  
+          var xhr=new XMLHttpRequest()
+          let url=`http://127.0.0.1/addcompany/${c_name}/${c_id}/${c_email}/${c_phno}/${c_location}/${c_address}`
+          xhr.open('GET',url)
+          xhr.onload=(res)=>{
+             console.log(res.currentTarget.responseText)
+          }
+          xhr.send();
         }
 
       }
