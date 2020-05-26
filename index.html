@@ -258,7 +258,7 @@
       <br>
       <small style="font-weight: 900;color: red;">If you don't have account in Product Authentication</small>
       <button type="button" class="btn btn-primary" onclick="ret_signup();">Don't have Account?</button>
-      <span style="color: red;" id="dmsg"></span>
+      <span style="color: red;" id="rmsg"></span>
     </div>
     <div class="ret-signup">
       <form id="addcomp">
@@ -464,9 +464,9 @@
 
     }
     function ret_verify(){
-      var dis_id=document.getElementById('ret_id').value;
+      var ret_id=document.getElementById('ret_id').value;
       var xhr=new XMLHttpRequest()
-      let url=`http://127.0.0.1:3000/dis_very/${ret_id}`
+      let url=`http://127.0.0.1:3000/ret_very/${ret_id}`
       xhr.open('GET',url)
       xhr.onload=(res)=>{
         let varified=JSON.parse(res.currentTarget.responseText)
@@ -506,7 +506,7 @@
            });
         }
         else{
-          document.getElementById('rmsg').innerHTML="Invalid distributer Id"
+          document.getElementById('rmsg').innerHTML="Invalid retailer Id"
         }
       }
       xhr.send();
