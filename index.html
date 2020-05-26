@@ -218,7 +218,7 @@
      </div>
      <div class="register">
        <p>Product Authenticated successfully...</p>
-      <button class="btn btn-primary" onclick="d_register()">Register</button>
+      <button class="btn btn-primary" onclick="d_register()">Done</button>
      </div>
   </div>
   </div>
@@ -303,7 +303,7 @@
        </div>
        <div class="r_register">
          <p>Product Authenticated successfully...</p>
-        <button class="btn btn-primary" onclick="r_register()">Register</button>
+        <button class="btn btn-primary" onclick="r_register()">Done</button>
        </div>
     </div>
     </div>
@@ -375,6 +375,8 @@
           }
           xhr.send();
         }
+        $('.signup').hide();
+        $('.login').show();
 
       }
       function verify(){
@@ -412,7 +414,8 @@
           xhr.send();
       $('.ret-signup').hide(); 
       $('.ret-login').show();   
-    } 
+    }
+    var product_id; 
     function dis_verify(){
       var dis_id=document.getElementById('dis_id').value;
       var xhr=new XMLHttpRequest()
@@ -450,7 +453,14 @@
           });
            Quagga.onDetected(function(data){
             //verify_product(data.codeResult.code);
-            //bro data.codeResult.code undatha avu product da hash aven verifcation portal g send malpula
+            var p_id=data.codeResult.code;
+            var xhr=new XMLHttpRequest()
+            let url=`http://127.0.0.1:3000/dis_verified/${p_id}`
+            xhr.open('GET',url)
+             xhr.onload=()=>{
+                alert("registerd succussfully.....")
+              }
+      xhr.send();
             $('.d_p_auth').hide()
             $('.register').show();
            });
@@ -500,7 +510,14 @@
           });
            Quagga.onDetected(function(data){
             //verify_product(data.codeResult.code);
-            //bro data.codeResult.code undatha avu product da hash aven verifcation portal g send malpula
+            var p_id=data.codeResult.code;
+            var xhr=new XMLHttpRequest()
+            let url=`http://127.0.0.1:3000/ret_verified/${p_id}`
+            xhr.open('GET',url)
+            xhr.onload=()=>{
+              alert("registerd succussfully.....")
+            }
+            xhr.send();
             $('.r_p_auth').hide()
             $('.r_register').show();
            });
@@ -514,23 +531,12 @@
 
     }
     function d_register(){
-      var xhr=new XMLHttpRequest()
-      let url=`http://127.0.0.1:3000/dis_verified/${p_id}`
-      xhr.open('GET',url)
-      xhr.onload=()=>{
-        alert("registerd succussfully.....")
-      }
-      xhr.send();
-
+      $('.register').hide();
+      $('.d_p_auth').show();
     }
     function r_register(){
-      var xhr=new XMLHttpRequest()
-      let url=`http://127.0.0.1:3000/ret_verified/${p_id}`
-      xhr.open('GET',url)
-      xhr.onload=()=>{
-        alert("registerd succussfully.....")
-      }
-      xhr.send();
+      $('.r_register').hide();
+      $('.r_p_auth').show();
 
     }
     </script>
