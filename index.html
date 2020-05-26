@@ -245,65 +245,65 @@
   <div class="row">
     <div class="col-md-4"></div>
     <div class="col-md-4">
-      <div class="dis-login">
+      <div class="ret-login">
       <form id="displayComp" >
         <h3>VERIFY YOURSELF</h3>
         <small id="emailHelp" class="form-text text-muted">Kindly Verify Yourself</small>
         <div class="form-group">
-          <label for="exampleInputPassword1">Distributer ID</label>
-          <input type="password" class="form-control" id="dis_id" placeholder="Enter Distributer ID">
+          <label for="exampleInputPassword1">Retailer ID</label>
+          <input type="password" class="form-control" id="ret_id" placeholder="Enter Distributer ID">
         </div>
-        <button type="button" class="btn btn-primary" onclick="dis_verify();">Verify</button>
+        <button type="button" class="btn btn-primary" onclick="ret_verify();">Verify</button>
       </form>
       <br>
       <small style="font-weight: 900;color: red;">If you don't have account in Product Authentication</small>
-      <button type="button" class="btn btn-primary" onclick="dis_signup();">Don't have Account?</button>
+      <button type="button" class="btn btn-primary" onclick="ret_signup();">Don't have Account?</button>
       <span style="color: red;" id="dmsg"></span>
     </div>
-    <div class="dis-signup">
+    <div class="ret-signup">
       <form id="addcomp">
-        <h1>SIGN UP DISTRIBUTER</h1>
+        <h1>SIGN UP RETAILER</h1>
         <small id="emailHelp" class="form-text text-muted">Kindly fill the following fields</small>
         <div class="form-group">
-          <label for="exampleInputEmail1">Distributer Name</label>
-          <input type="text" class="form-control" id="d_name" aria-describedby="textHelp" placeholder="Enter Distributer  Name">
+          <label for="exampleInputEmail1">Retailer Name</label>
+          <input type="text" class="form-control" id="r_name" aria-describedby="textHelp" placeholder="Enter Retailer  Name">
         </div>
         <div class="form-group">
-          <label for="exampleInputPassword1">Distributer  ID</label>
-          <input type="password" class="form-control" id="d_id" placeholder="Enter Distributer ID">
+          <label for="exampleInputPassword1">Retailer  ID</label>
+          <input type="password" class="form-control" id="r_id" placeholder="Enter Retailer ID">
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Offial Email</label>
-          <input type="email" class="form-control" id="d_email" placeholder="Enter Offial Email">
+          <input type="email" class="form-control" id="r_email" placeholder="Enter Offial Email">
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Offial Phone No</label>
-          <input type="text" class="form-control" id="d_phno" placeholder="Enter Offial Phone No">
+          <input type="text" class="form-control" id="r_phno" placeholder="Enter Offial Phone No">
         </div>
         <div class="form-group">
-          <label for="exampleInputPassword1">Distributer  Location</label>
-          <input type="text" class="form-control" id="d_location" placeholder="Enter Distributer  Location">
+          <label for="exampleInputPassword1">Retailer Location</label>
+          <input type="text" class="form-control" id="r_location" placeholder="Enter Retailer Location">
         </div>
         <div class="form-group">
-          <label for="exampleInputPassword1">Distributer  Address</label>
-          <textarea type="text" class="form-control" id="d_adress" placeholder="Enter Distributer Address">
+          <label for="exampleInputPassword1">Retailer Address</label>
+          <textarea type="text" class="form-control" id="r_address" placeholder="Enter Retailer Address">
             </textarea>
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Company ID</label>
-          <input type="password" class="form-control" id="d_c_id" placeholder="Enter Company ID">
+          <input type="password" class="form-control" id="r_c_id" placeholder="Enter Company ID">
         </div>
     
-        <button type="button" class="btn btn-primary" onclick="AddDistributer()" >Sigup</button>
+        <button type="button" class="btn btn-primary" onclick="AddRetailer()" >Sigup</button>
       </form>
     </div>
-    <div class="d_p_auth">
-       <div id="d-camera">
+    <div class="r_p_auth">
+       <div id="r-camera">
   
        </div>
-       <div class="register">
+       <div class="r_register">
          <p>Product Authenticated successfully...</p>
-        <button class="btn btn-primary" onclick="d_register()">Register</button>
+        <button class="btn btn-primary" onclick="r_register()">Register</button>
        </div>
     </div>
     </div>
@@ -352,6 +352,9 @@
         $('.company').hide();
         $('.retailer').show();
         $('.distributer').hide();
+        $('.ret-login').show();
+        $('.ret-signup').hide();
+        $('.r_p_auth').hide();
       }
       function Addcompany(){
         var status=App.addCompany()
@@ -388,23 +391,27 @@
         $('.dis-login').hide();
         $('.dis-signup').show();
       }
-    function AddDistributer(){
-          var d_name=document.getElementById('d_name').value;
-          var d_id=document.getElementById('d_id').value;
-          var d_email=document.getElementById('d_email').value;
-          var d_phno=document.getElementById('d_phno').value;
-          var d_location=document.getElementById('d_location').value;
-          var d_address=document.getElementById('d_address').value;
-          var d_c_id=document.getElementById('d_c_id').value;
+      function ret_signup(){
+        $('.ret-login').hide();
+        $('.ret-signup').show();
+      }
+    function AddRetailer(){
+          var r_name=document.getElementById('r_name').value;
+          var r_id=document.getElementById('r_id').value;
+          var r_email=document.getElementById('r_email').value;
+          var r_phno=document.getElementById('r_phno').value;
+          var r_location=document.getElementById('r_location').value;
+          var r_address=document.getElementById('r_address').value;
+          var r_c_id=document.getElementById('r_c_id').value;
           var xhr=new XMLHttpRequest()
-          let url=`http://127.0.0.1:3000/add_dis/${d_name}/${d_id}/${d_c_id}/${d_email}/${d_phno}/${d_location}/${d_address}`
+          let url=`http://127.0.0.1:3000/add_ret/${r_name}/${r_id}/${r_c_id}/${r_email}/${r_phno}/${r_location}/${r_address}`
           xhr.open('GET',url)
           xhr.onload=(res)=>{
              console.log(res.currentTarget.responseText)
           }
           xhr.send();
-      $('.dis-signup').hide(); 
-      $('.dis-login').show();   
+      $('.ret-signup').hide(); 
+      $('.ret-login').show();   
     } 
     function dis_verify(){
       var dis_id=document.getElementById('dis_id').value;
@@ -456,9 +463,69 @@
       
 
     }
+    function ret_verify(){
+      var dis_id=document.getElementById('ret_id').value;
+      var xhr=new XMLHttpRequest()
+      let url=`http://127.0.0.1:3000/dis_very/${ret_id}`
+      xhr.open('GET',url)
+      xhr.onload=(res)=>{
+        let varified=JSON.parse(res.currentTarget.responseText)
+        if(varified.status){
+          $('.ret-login').hide();
+          $('.r_p_auth').show();
+          $('.r_register').hide();
+          //open barcode scanner
+          Quagga.init({
+            inputStream : {
+              name : "Live",
+              type : "LiveStream",
+              target: document.querySelector('#r-camera')    // Or '#yourElement' (optional)
+          },
+          debug: {
+            drawBoundingBox: true,
+            showFrequency: true,
+            drawScanline: true,
+            showPattern: true
+          },
+            decoder : {
+              readers : ["code_128_reader"]
+            }
+          }, function(err) {
+              if (err) {
+                  console.log(err);
+                  return
+              }
+              console.log("Initialization finished. Ready to start");
+              Quagga.start();
+          });
+           Quagga.onDetected(function(data){
+            //verify_product(data.codeResult.code);
+            //bro data.codeResult.code undatha avu product da hash aven verifcation portal g send malpula
+            $('.r_p_auth').hide()
+            $('.r_register').show();
+           });
+        }
+        else{
+          document.getElementById('rmsg').innerHTML="Invalid distributer Id"
+        }
+      }
+      xhr.send();
+      
+
+    }
     function d_register(){
       var xhr=new XMLHttpRequest()
       let url=`http://127.0.0.1:3000/dis_verified/${p_id}`
+      xhr.open('GET',url)
+      xhr.onload=()=>{
+        alert("registerd succussfully.....")
+      }
+      xhr.send();
+
+    }
+    function r_register(){
+      var xhr=new XMLHttpRequest()
+      let url=`http://127.0.0.1:3000/ret_verified/${p_id}`
       xhr.open('GET',url)
       xhr.onload=()=>{
         alert("registerd succussfully.....")
